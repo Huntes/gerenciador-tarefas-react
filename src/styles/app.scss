@@ -1,0 +1,39 @@
+//Arquivo SCSS GLOBAL
+//Adiciona o boostrap dentro do SASS
+@import "~bootstrap/scss/bootstrap";
+
+//Fonte importada para o projeto global - Localizada no Assets
+@font-face {
+    font-family: 'Biennale Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fontes/Biennale/Biennale\ Regular.otf') format('opentype');
+}
+
+//Coloca a fonte Biennale globalmente em todo o corpo do projeto e HTML
+html{
+    height: 100%;
+    font-family: 'Biennale Regular';
+}
+
+body{
+    height: 100%;
+    font-family: 'Biennale Regular';
+}
+
+//Alinha itens ao centro (CSS Global)
+#root{
+    height: 100%;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px;
+}
+
+//Configura as cores globais para o projeto
+@import './config.scss';
+@import './login.scss';

@@ -1,0 +1,108 @@
+@import './config.scss';
+
+//Aplica o CSS aonde conter o id .container-login
+.container-login{
+
+    //Seleciona uma classe
+    .logo{
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+        width: 196.8px;
+    }
+    
+    //Seleciona o elemento HTML button
+    button{
+        width: 100%;
+        height: 56px;
+        background-color: $primaryColor;
+        border-color: $primaryColor;
+        color: white;
+        border-radius: 12px;
+        font-size: 17px;
+        margin-top: 12px;
+    }
+
+    //Seleciona os dois inputs 
+    .input{
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+
+        img{
+            margin-top: -20px;
+            margin-right: 10px;
+        }
+
+        input{
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.01em;
+            color: $primaryColor;
+            width: 240px;
+            border-radius: 0px;
+            padding-bottom: 7px;
+
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-color: $mediumGreyColor;
+            border-bottom-width: 0.1em;
+
+            //Tira efeito de linha
+            outline: none;
+
+            //Efeito ao selecionar o input, troca a cor do border color
+            &:focus{
+                border-color: $primaryColor;
+            }
+
+            //Troca a cor padrão do placeholder no Chrome/Safari/Opera
+            &::placeholder{
+                color: $mediumGreyColor;
+                opacity: 1;
+            }
+
+            //Troca cor do placeholder Edge
+            &::-ms-input-placeholder{
+                color: $mediumGreyColor;
+            }
+
+            //Troca cor do placeholder Internet Explorer
+            &:-ms-input-placeholder{
+                color: $mediumGreyColor;
+            }
+        }
+    }
+
+    @media screen and (min-width: 992px){
+        display: flex;
+        flex-direction: row;
+
+        .logo{
+            width: 520px;
+            margin: 0px;
+        }
+
+        form{
+            border-style: solid;
+            border-color: $primaryColor;
+            border-width: 0.1em;
+            border-radius: 32px;
+            padding: 80px 40px;
+            margin-left: 10%;
+
+            .input{
+                input{
+                    width: 343px;
+                }
+
+                img{
+                    width: 20px;
+                }
+            }
+        }
+    }
+}
