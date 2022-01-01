@@ -4,6 +4,7 @@ import React from 'react';
 //para passar dinamicamente para o HTML
 export const Input = props => {
 
+    //Propriedades que receberão os dados dos componentes que importarem esse Input
     const {
         srcImg, 
         altImg, 
@@ -14,6 +15,8 @@ export const Input = props => {
         setValue,
     } = props;
 
+
+    //Componente input retorna o HTML com os dados dinâmicos
     return (
         <div className='input'>
             <img src={srcImg} alt={altImg}/>

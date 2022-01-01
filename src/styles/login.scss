@@ -10,6 +10,13 @@
         margin-bottom: 30px;
         width: 196.8px;
     }
+
+    p {
+        max-width: 280px;
+        text-align: center;
+        color: $errorColor;
+        font-weight: bold;
+    }
     
     //Seleciona o elemento HTML button
     button{
