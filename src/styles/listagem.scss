@@ -8,7 +8,12 @@
     //Elementos um embaixo do outro
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    //Quando a classe for vazia, alinha itens ao centro, caso contrário mantém flex-start (Topo)
+    &.vazia{
+        justify-content: center;
+    }
 
     img{
         width: 280px;
