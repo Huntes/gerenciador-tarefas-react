@@ -43,8 +43,11 @@ export const Login = props => {
             console.log(e);
             //Operador ? verifica se existe o elemento a cada ? 
             if(e?.response?.data?.erro){
-                //Retorna a mensagem de erro via useState
+                //Retorna a mensagem de erro via useState 
                 setMsgErro(e.response.data.erro);
+            }else{
+                //Caso a API não retorne nada ou não esteja funcionando, retorna uma mensagem de erro genérica
+                setMsgErro('Não foi possível efetuar o login, contate o administrador.');
             }
         }
 

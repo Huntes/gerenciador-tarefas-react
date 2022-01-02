@@ -3,7 +3,7 @@ import logo from '../assets/icones/devaria-logo.svg';
 import sair from '../assets/icones/exit.svg';
 import sairDesktop from '../assets/icones/exit-desktop.svg';
 
-//Componente de Header da página, que será compartilhado para todas as outras telas
+//Componente de Header da página, que será compartilhado para todas as outras telas - recebe propriedades de outros componentes
 export const Header = props =>{
 
     //Pega nome completo do usuário armazenado no Application do navegador do usuário
