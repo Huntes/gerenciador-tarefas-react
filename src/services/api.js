@@ -11,11 +11,23 @@ const instance = axios.create({
 
 //Método que é executado quando houver uma requisição, passando a URL e os dados para a API
 export const executaRequisicao = (endpoint, metodoHTTP, body) => {
-    console.log(`executando: ${URL}${endpoint}, metodo: ${metodoHTTP}, body: ${body}`);
+
+    //Pega o accessToken guardado no localStorage 
+    const accessToken = localStorage.getItem('accessToken');
+
+    let headers = {'Content-Type' : 'application/json'};
+
+    //Caso o accessToken exista, adiciona um Authorization no header com o token, para liberação de requisição do usuário
+    if(accessToken){
+        headers['Authorization'] = 'Bearer ' + accessToken;
+    }
+
+    console.log(`executando: ${URL}${endpoint}, metodo: ${metodoHTTP}, body: ${body}, headers ${headers}`);
 
     return instance.request({
         url: endpoint,
         method: metodoHTTP,
-        data: body? body : ''
+        data: body? body : '',
+        headers: headers
     });
 }

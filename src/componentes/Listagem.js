@@ -8,7 +8,7 @@ export const Listagem = props => {
 
     return (
         //Adiciona a classe container e verifica se existem tarefas, caso não exista adiciona classe vazia também para estilização no CSS e alinhamento de itens
-        <div className={"container-listagem" + (tarefas && tarefas.length > 0 ? "" : "vazia")}>
+        <div className={"container-listagem " + (tarefas && tarefas.length > 0 ? "" : "vazia")}>
 
             {tarefas && tarefas.length > 0 ?
 

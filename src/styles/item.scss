@@ -10,7 +10,7 @@
     border-radius: 12px;
     padding: 10px;
     margin-top: 10px;
-    height: 50px;
+    height: 55px;
 
     img{
         width: 18px;
@@ -23,6 +23,11 @@
             color: $darkGreyColor;
             font-weight: bold;
             font-size: 15px;
+
+            //Quando o P tiver a classe concluída, o texto ficará tracejado
+            &.concluido{
+                text-decoration: line-through;
+            }
         }
 
         span{
@@ -31,4 +36,26 @@
             font-size: 14px;
         }
     }
+
+    @media screen and (min-width: 992px){
+        height: 70px;
+        padding: 20px;
+
+        img{
+            width: 20px;
+        }
+
+        //Quando a classe da tarefa for ativa (tarefa ainda não concluída)
+        &.ativo{
+            cursor: pointer;
+
+            //Quando a tarefa ativa tiver o mouse em cima
+            &:hover{
+                border-color: $primaryColor;
+                border-style: solid;
+                border-width: 1px;
+            }
+        }
+    }
+
 }
