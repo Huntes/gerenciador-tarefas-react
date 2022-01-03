@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Modal } from 'react-bootstrap';
 import { Header } from '../componentes/Header';
 import { Filtros } from '../componentes/Filtros';
 import { Listagem } from '../componentes/Listagem';
@@ -7,12 +8,17 @@ import {executaRequisicao} from '../services/api';
 
 export const Home = props => {
 
-    //Simulação de tarefas recebidas da API, sendo passadas via Props para o componente lista de tarefas
+    //States da página Home, filtros da tarefa + modalState
     const [tarefas, setTarefas] = useState([]);
     const [periodoDe, setPeriodoDe] = useState('');
     const [periodoAte, setPeriodoAte] = useState('');
     const [status, setStatus] = useState(0);
+    const [showModal, setShowModal] = useState(false);
 
+    //Inverte o modal de false -> true / true -> false
+    const toggleModal = () => {
+        setShowModal(!showModal);
+    }
 
     const getTarefasComFiltro = async () =>{
         try{
@@ -56,7 +62,20 @@ export const Home = props => {
             <Header sair={sair}/>
             <Filtros periodoDe={periodoDe} periodoAte={periodoAte} status={status} setPeriodoDe={setPeriodoDe} setPeriodoAte={setPeriodoAte} setStatus={setStatus}/>    
             <Listagem tarefas={tarefas}/>
-            <Footer />
+            <Footer showModal={() => setShowModal(true)}/>
+            <Modal show={showModal} onHide={toggleModal} className="container-modal">
+                <Modal.Body>
+                    <p>Adicionar uma tarefa</p>
+                    <input type="text" name="nome" placeholder='Nome da tarefa' className="col-12"/>
+                    <input type="text" name="dataPrevisao" placeholder='Data de conclusão' className="col-12"/>
+                </Modal.Body>
+                <Modal.Footer>
+                    <div className='buttons col-12'>
+                        <button>Salvar</button>
+                        <span onClick={toggleModal}>Cancelar</span>
+                    </div>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 }
