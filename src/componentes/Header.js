@@ -5,16 +5,20 @@ import sairDesktop from '../assets/icones/exit-desktop.svg';
 
 //Componente de Header da página, que será compartilhado para todas as outras telas - recebe propriedades de outros componentes
 export const Header = props =>{
+    
+    //Modal recebido via props para adicionar tarefas (desktop)
+    const {showModal} = props;
 
     //Pega nome completo do usuário armazenado no Application do navegador do usuário
     const nomeCompleto = localStorage.getItem('usuarioNome');
     //Verificar se o nome completo existe, separa em um vetor separando por espaço e pega o primeiro nome
     const primeiroNome = nomeCompleto?.split(' ')[0] || '';
 
+
     return(
         <div className='container-header'>
             <img className='logo' src={logo} alt="Logo Devaria"/>
-            <button><span>+</span> Adicionar tarefa </button>
+            <button onClick={showModal}><span>+</span> Adicionar tarefa </button>
             <div className='mobile'>
                 <span>Olá, {primeiroNome}</span>
                 <img className='sair' src={sair} alt="Deslogar" onClick={props.sair}/>
